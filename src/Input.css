@@ -3,6 +3,10 @@
   margin-bottom: 13px;
 }
 
+.input-wrapper label {
+  margin-right: 15px;
+}
+
 .input {
   background: transparent;
   border: none;
