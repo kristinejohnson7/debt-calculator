@@ -1,0 +1,27 @@
+
+.payment-wrapper {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 15px;
+ }
+
+ .side-payment {
+  text-align: center;
+ }
+
+ .side-payment p, h5 {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+
+.side-payment h5 {
+ font-size: 18px;
+}
+
+.side-payment p {
+ font-size: 12px;
+}

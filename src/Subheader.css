@@ -1,0 +1,8 @@
+
+   .payment {
+    display: flex;
+  }
+
+  .payment p {
+   padding-right: 5px;
+  }

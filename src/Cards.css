@@ -1,0 +1,25 @@
+/* All Card Defaults */
+
+.card {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 20px;
+  border-radius: 7px;
+  background-color: #BADAD5;
+  width: 35%;
+ }
+
+ .card h3 {
+   text-align: center;
+ }
+
+ .content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+

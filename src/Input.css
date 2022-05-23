@@ -1,0 +1,11 @@
+.input-wrapper {
+  display: flex;
+  margin-bottom: 13px;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+.bg {
+  position: absolute;
+  z-index: -10;
+  opacity: 0.8;
+}
+
+.bg-square1 {
+  left: -25px;
+  top: 100px;
+  width: 390px;
+  transform: rotate(5deg);
+}
+
+.bg-square2 {
+  bottom: 15px;
+  right: -70px;
+  transform: rotate(190deg);
+  width: 500px;
+}
