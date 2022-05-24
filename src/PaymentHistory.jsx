@@ -12,9 +12,7 @@ class PaymentHistory extends React.Component {
 
  
   render() {
-    const {numberPayments, interestPaid} = this.props
-    console.log("props # payments", numberPayments)
-    console.log("props interest", interestPaid)
+    const {paymentHistory} = this.props
     return (
       <div className="card">  
         <h3>Payment History</h3>
@@ -27,9 +25,12 @@ class PaymentHistory extends React.Component {
               <TableColumn column="Interest Paid" />
               <TableColumn column="Remaining Balance" />
             </tr>
-             {/* {items.map(item => (
+             {/* {paymentHistory.map((item, index) => (
                <tr key={Math.floor((Math.random() * 100) + 1)}>
-                <TableColumn column={item} />
+                <TableColumn column={index + 1} />
+                <TableColumn column={item.principalPaid.toFixed(2)} />
+                <TableColumn column={item.interestPaid.toFixed(2)} />
+                <TableColumn column={item.remainingBalance.toFixed(2)} />
                </tr>
              ))} */}
             </tbody>

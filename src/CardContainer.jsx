@@ -9,7 +9,7 @@ import "./CardContainer.css";
 class CardContainer extends React.Component {
   constructor() {
     super()
-    this.numberOfPayments= 0;
+    // this.numberOfPayments= 0;
     this.paymentsLeft= 0;
     this.minPrincipal = 0;
     this.state = {
@@ -28,46 +28,53 @@ class CardContainer extends React.Component {
   }
 
   paymentChange = (values) => {
-    const {paymentHistory} = this.state
-    this.setState({paymentAmount: values.paymentAmount})
-    paymentHistory.push(values.paymentAmount)
-    this.paymentsLeftCalc(this.minMonthlyPayment)
-    this.updatePaymentHistory()
+    const {paymentHistory, loanAmount} = this.state
+    console.log("before state", paymentHistory)
+    const historyPayment = { 
+      paymentAmount: values.paymentAmount,
+      interestPaid: this.monthlyInterestRate(), 
+      principalPaid: this.minimumPrincipal(), 
+      // remainingBalance: this.paymentsLeftCalc(values.paymentAmount)
+    }
+    this.setState((prevState) => ({paymentHistory: [...prevState.paymentHistory, historyPayment]}), () => {
+      console.log("new set PH", paymentHistory)
+      // this.paymentsLeftCalc(values.paymentAmount, paymentHistory, loanAmount)
+    })  
+     
   }
 
   //Calculations
 
-  numberOfPaymentsCalc() {
-    this.numberOfPayments = this.state.paymentHistory.length
-  }
-
-  updatePaymentHistory() {
-    this.numberOfPaymentsCalc()
-  }
-
-  totalInterestPaid() {
-
-    this.monthlyInterest.reduce()
-  }
-
-  paymentsLeftCalc(payment) {
-    const {paymentHistory, loanAmount} = this.state
-    const sum = paymentHistory.reduce((acc, current) => {
+  paymentsLeftCalc(payment, overridePaymentHistory, overrideLoanAmount) {
+    let {paymentHistory, loanAmount} = this.state
+    if(loanAmount !== undefined) {
+      paymentHistory = overridePaymentHistory
+      loanAmount = overrideLoanAmount
+    }
+    console.log("payment history", paymentHistory)
+    const sumInterest = paymentHistory.map(item => (item.interestPaid))
+    .reduce((acc, current) => {
       return acc + current
     }, 0)
+    const paymentSum = paymentHistory.map(item => (item.paymentAmount))
+    .reduce((acc, current) => {
+      return acc + current
+    }, 0)
+    const sum = paymentSum - sumInterest
+    console.log("sum", sum)
     this.paymentsLeft = parseInt((loanAmount - sum) / payment)
-    console.log(this.paymentsLeft)
+    return sum
   }
 
   monthlyInterestRate = () => {
     const {loanAmount, loanInterest} = this.state
-    this.monthlyInterest = ((loanInterest / 12) * loanAmount).toFixed(2)
+    this.monthlyInterest = parseFloat((loanInterest / 12) * loanAmount)
     return this.monthlyInterest
   }
 
   minimumPrincipal = () => {
     const {loanAmount} = this.state
-    this.minPrincipal = (loanAmount * 0.01).toFixed(2)
+    this.minPrincipal = parseFloat(loanAmount * 0.01)
     return this.minPrincipal
   }
 
@@ -93,7 +100,7 @@ class CardContainer extends React.Component {
         minPrincipal={this.minimumPrincipal()}
         minMonthlyPayment={this.minimumMonthlyPayment()}
          />
-        <PaymentHistory numberPayments={this.numberOfPayments} interestPaid={this.monthlyInterest}/>
+        <PaymentHistory numberPayments={this.numberOfPayments} interestPaid={this.monthlyInterest} paymentHistory={paymentHistory}/>
       </div>
     )
   }

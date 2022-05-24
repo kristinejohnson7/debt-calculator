@@ -12,7 +12,7 @@ class SubHeader extends React.Component {
     return(
       <div className="payment">
         <p>{header}:</p>
-        <p>${value}</p>
+        <p>${value?.toFixed(2)}</p>
       </div>
     )
   }
