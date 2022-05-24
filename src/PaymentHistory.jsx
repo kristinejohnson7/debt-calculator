@@ -25,14 +25,14 @@ class PaymentHistory extends React.Component {
               <TableColumn column="Interest Paid" />
               <TableColumn column="Remaining Balance" />
             </tr>
-             {/* {paymentHistory.map((item, index) => (
+             {paymentHistory.map((item, index) => (
                <tr key={Math.floor((Math.random() * 100) + 1)}>
                 <TableColumn column={index + 1} />
                 <TableColumn column={item.principalPaid.toFixed(2)} />
                 <TableColumn column={item.interestPaid.toFixed(2)} />
                 <TableColumn column={item.remainingBalance.toFixed(2)} />
                </tr>
-             ))} */}
+             ))}
             </tbody>
           </table>
         </div>

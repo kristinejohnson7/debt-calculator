@@ -36,6 +36,7 @@ class MakeAPayment extends React.Component {
           >
             <Input 
             type= "number"
+            min={minMonthlyPayment}
             name="paymentAmount"
             defaultValue= {paymentAmount}
             info="Enter Payment Amount"/>
