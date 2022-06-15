@@ -1,8 +1,8 @@
 
-  .payment {
+  .payment-header {
     display: flex;
   }
 
-  .payment p {
+  .payment-header p {
    padding-right: 8px;
   }

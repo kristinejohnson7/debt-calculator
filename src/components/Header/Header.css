@@ -23,3 +23,10 @@
   color: #D2E161;
   font-style: italic;
 }
+
+@media (max-width: 740px) {
+  .header-container {
+    margin-bottom: 50px;
+
+  }
+}

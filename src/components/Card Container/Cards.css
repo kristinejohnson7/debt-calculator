@@ -6,6 +6,7 @@
   border-radius: 7px;
   background-color: #BADAD5;
   width: 35%;
+  max-height: 390px;
  }
 
  .card h3 {
@@ -23,3 +24,8 @@
   gap: 10px;
 }
 
+@media (max-width: 575px) {
+  .card {
+    max-height: 450px;
+  }
+}

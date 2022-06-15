@@ -25,3 +25,11 @@
 .side-payment p {
  font-size: 12px;
 }
+
+@media (max-width: 740px) {
+  .payment-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+}

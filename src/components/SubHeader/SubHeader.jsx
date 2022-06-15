@@ -10,7 +10,7 @@ class SubHeader extends React.Component {
   render() {
     const {header, value} = this.props
     return(
-      <div className="payment">
+      <div className="payment-header">
         <p>{header}:</p>
         <p>${value?.toFixed(2)}</p>
       </div>

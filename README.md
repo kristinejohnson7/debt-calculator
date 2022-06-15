@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+🛠 Requirements
+User enters total debt amount
+User enters interest rate
+The app will display how many normal payments it will take to be debt-free
+There is a "Make a payment" field. The user can set the payment amount. It will calculate the payment against the interest and deduct it from the total debt amount
+You will require a 1% minimum payment on the principal.
+Require that the user cannot pay less than the minimum
+Every time the user makes a payment, you will record that payment and show it in a list of payments, while reducing the overall balance.
+Every time the user makes a payment, you must first calculate the interest. We will calculate interest annually.
+The app must include at least two (2) components
+A component for the form (where a user enters the numbers).
+A component for payment history
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+⚖️ Example:
+The user enters an interest rate of 9.5%. The total loan amount they enter is $38,000
+Interest = (0.095 / 12) _ 38,000
+Interest: $300.83
+You will require a 1% minimum payment on the principal.
+Principal = 38,000 _ 1%
+Principal = $380
+TOTAL PAYMENT: $680.83
+When the user clicks "Submit Payment" you will log this payment in a list and then adjust the balance.
 
-## Available Scripts
+The new balance would be:
 
-In the project directory, you can run:
+New Balance = Previous Balance - Last Principal Payment
+New Balance = $37,620
+Overpayment
 
-### `npm start`
+A user can pay more on the principal. 1% principal payment is required, but more can be added and it will be calculated appropriately. Using the example above, let's make a 2nd payment.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Balance = $37,620
+Interest = $297.82
+Required Principal: $376.20
+Minimum Payment: $674.02
+Total user payment (user enters this amount): $852
+Principal = $852 - $297.82
+Principal: $554.18
+New Balance = New Balance - Principal Payment
+New Balance = $37,065.82
